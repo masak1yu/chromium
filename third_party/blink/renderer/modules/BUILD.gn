@@ -102,6 +102,7 @@ component("modules") {
     "//third_party/blink/renderer/modules/gamepad",
     "//third_party/blink/renderer/modules/handwriting",
     "//third_party/blink/renderer/modules/hid",
+    "//third_party/blink/renderer/modules/horizon_vm",
     "//third_party/blink/renderer/modules/idle",
     "//third_party/blink/renderer/modules/imagecapture",
     "//third_party/blink/renderer/modules/image_downloader",

@@ -1,0 +1,24 @@
+// Copyright 2026 The Chromium Authors
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+[
+  Exposed=(Window,DedicatedWorker,SharedWorker),
+  SecureContext,
+  RuntimeEnabled=HorizonVM
+]
+interface HorizonVMMemory {
+  constructor(HorizonVMMemoryDescriptor descriptor);
+
+  // Grow the memory by |delta| pages (4 KiB each).
+  // Returns the previous size in pages, or -1 (as uint32 max) on failure.
+  unsigned long grow(unsigned long delta);
+
+  // Underlying ArrayBuffer wrapping the VM's linear memory.
+  readonly attribute ArrayBuffer buffer;
+};
+
+dictionary HorizonVMMemoryDescriptor {
+  required unsigned long initial;
+  unsigned long maximum;
+};
