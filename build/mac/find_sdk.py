@@ -69,6 +69,12 @@ def main():
     print(err, file=sys.stderr)
     raise Exception('Error %d running xcode-select' % job.returncode)
   dev_dir = out.decode('UTF-8').rstrip()
+  # Nix overrides xcode-select with a stub that returns the Nix SDK path.
+  # Fall back to the real Xcode.app when this is detected.
+  if dev_dir.startswith('/nix/'):
+    xcode_app = '/Applications/Xcode.app/Contents/Developer'
+    if os.path.isdir(xcode_app):
+      dev_dir = xcode_app
   sdk_dir = os.path.join(
       dev_dir, 'Platforms/MacOSX.platform/Developer/SDKs')
 
