@@ -21,8 +21,6 @@ source_set("horizon_vm") {
   ]
 
   public_configs = [ ":horizon_vm_config" ]
-
-  configs += [ "//build/config/compiler:cxx_version_default" ]
 }
 
 # Standalone test binary (outside Chromium, for CI)
