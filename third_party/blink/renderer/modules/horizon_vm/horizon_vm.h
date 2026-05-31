@@ -4,6 +4,7 @@
 #pragma once
 
 #include "third_party/blink/renderer/bindings/core/v8/script_promise.h"
+#include "third_party/blink/renderer/bindings/core/v8/v8_typedefs.h"
 #include "third_party/blink/renderer/platform/bindings/script_wrappable.h"
 #include "third_party/blink/renderer/platform/heap/garbage_collected.h"
 
@@ -11,7 +12,6 @@ namespace blink {
 
 class HorizonVMModule;
 class ScriptState;
-class V8BufferSource;
 class Response;
 
 // Static namespace — not constructible.

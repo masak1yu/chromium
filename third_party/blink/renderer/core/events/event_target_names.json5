@@ -54,6 +54,7 @@
     "XMLHttpRequestUpload",
     "CloseWatcher",
     "PreferenceObject",
-    "Route"
+    "Route",
+    "HorizonVMInstance"
   ],
 }

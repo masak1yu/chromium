@@ -62,10 +62,12 @@ class HorizonVMInstance final : public EventTarget {
 
   void Trace(Visitor* visitor) const override;
 
- private:
+  // Not for direct use — call Create() instead.
   HorizonVMInstance(ExecutionContext* context,
                      std::shared_ptr<horizon::Memory> mem,
                      horizon::LoadedModule loaded);
+
+ private:
 
   // Called on the VM worker thread.
   void RunOnWorkerThread(ScriptPromiseResolver<IDLUndefined>* resolver);

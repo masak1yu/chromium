@@ -27,11 +27,13 @@ ScriptPromise<HorizonVMInstance> HorizonVMModule::instantiate(
   auto* instance = HorizonVMInstance::Create(script_state, *this,
                                                exception_state);
   if (!instance)
-    return ScriptPromise<HorizonVMInstance>::Reject(script_state,
-                                                     exception_state);
+    return ScriptPromise<HorizonVMInstance>();
 
-  return ScriptPromise<HorizonVMInstance>::FromValue(
-      script_state, WrapPersistent(instance));
+  auto* resolver =
+      MakeGarbageCollected<ScriptPromiseResolver<HorizonVMInstance>>(
+          script_state);
+  resolver->Resolve(instance);
+  return resolver->Promise();
 }
 
 void HorizonVMModule::Trace(Visitor* visitor) const {
